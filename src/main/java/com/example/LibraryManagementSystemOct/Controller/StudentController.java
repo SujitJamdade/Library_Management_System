@@ -33,7 +33,7 @@ public class StudentController {
             return new ResponseEntity(student, HttpStatus.OK);
 
         }catch(Exception e){
-            return new ResponseEntity(e.getMessage(), HttpStatus.OK);
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
