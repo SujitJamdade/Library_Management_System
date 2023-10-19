@@ -39,7 +39,12 @@ public class AuthorController {
         }catch (Exception e){
             return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
         }
-
     }
 
+    @GetMapping("/getBookNameList")
+    public ResponseEntity getBookNameList(@RequestParam("authorId")Integer authorId){
+
+        List<String> bookNames = authorService.getBookNames(authorId);
+        return new ResponseEntity(bookNames,HttpStatus.OK);
+    }
 }

@@ -12,5 +12,6 @@ public enum Genre {
     FANTASY,
     ACTION,
     HISTORY,
-    MYTHOLOGICAL
+    MYTHOLOGICAL,
+    FINANCE
 }

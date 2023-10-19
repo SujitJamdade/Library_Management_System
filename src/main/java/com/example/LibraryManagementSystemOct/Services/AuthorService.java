@@ -1,6 +1,7 @@
 package com.example.LibraryManagementSystemOct.Services;
 
 import com.example.LibraryManagementSystemOct.Entities.Author;
+import com.example.LibraryManagementSystemOct.Entities.Book;
 import com.example.LibraryManagementSystemOct.Repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,18 @@ public class AuthorService {
 
         Author author = optionalAuthor.get();
         return author;
+    }
+
+    public List<String> getBookNames(Integer authorId){
+
+        List<String> bookNames = new ArrayList<>();
+
+        Author author = authorRepository.findById(authorId).get();
+        List<Book> bookList = author.getBookList();
+
+        for(Book book:bookList) {
+            bookNames.add(book.getBookName());
+        }
+        return bookNames;
     }
 }
