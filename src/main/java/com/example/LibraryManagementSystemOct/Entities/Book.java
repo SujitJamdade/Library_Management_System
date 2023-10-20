@@ -8,6 +8,9 @@ import lombok.experimental.FieldDefaults;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table //Incase you don't write any name : ClassName is taken as Table Name
 
@@ -38,7 +41,9 @@ public class Book {
     @JoinColumn
     Author author;
 
-
+    // Connecting to transaction
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    List<Transaction> transactionList = new ArrayList<>();
 
 
 }

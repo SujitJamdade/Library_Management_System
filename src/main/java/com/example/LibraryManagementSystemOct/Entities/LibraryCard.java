@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "library_card")
 @Getter
@@ -30,6 +33,10 @@ public class LibraryCard {
     @JoinColumn
     Student student; // this is FK in library_card table
     // student variable we need to put in mappedBy attribute in the parent class
+
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
+    List<Transaction> transactionList = new ArrayList<>();
+
 
 
 
