@@ -3,12 +3,16 @@ package com.example.LibraryManagementSystemOct.Services;
 import com.example.LibraryManagementSystemOct.Entities.Author;
 import com.example.LibraryManagementSystemOct.Entities.Book;
 import com.example.LibraryManagementSystemOct.Repository.AuthorRepository;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+@FieldDefaults(level = AccessLevel.PRIVATE)
 
 @Service
 public class AuthorService {
