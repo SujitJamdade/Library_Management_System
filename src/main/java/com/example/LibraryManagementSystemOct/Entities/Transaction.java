@@ -20,7 +20,7 @@ public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer trancationID;
+    Integer transactionID;
 
     @Enumerated(value = EnumType.STRING)
     TransactionStatus transactionStatus;

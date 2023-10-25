@@ -3,6 +3,7 @@ package com.example.LibraryManagementSystemOct.Services;
 
 import com.example.LibraryManagementSystemOct.Entities.Author;
 import com.example.LibraryManagementSystemOct.Entities.Book;
+import com.example.LibraryManagementSystemOct.Enums.Genre;
 import com.example.LibraryManagementSystemOct.Exceptions.AuthorNotFoundException;
 import com.example.LibraryManagementSystemOct.Repository.AuthorRepository;
 import com.example.LibraryManagementSystemOct.Repository.BookRepository;
@@ -11,6 +12,8 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -40,7 +43,21 @@ public class BookService {
         authorRepository.save(author);
 
         return book.getBookName() + " book has been added to the DB";
+
     }
 
+
+    public List<String> getBooksByGenre(Genre genre){
+
+        List<Book> bookList = bookRepository.findBooksByGenre(genre);
+
+        List<String> bookNames = new ArrayList<>();
+
+        for(Book book:bookList) {
+
+            bookNames.add(book.getBookName());
+        }
+        return bookNames;
+    }
 
 }

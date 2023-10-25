@@ -37,6 +37,8 @@ public class Book {
 
     double rating;
 
+    Boolean isBookAvailable;
+
     @ManyToOne
     @JoinColumn
     Author author;

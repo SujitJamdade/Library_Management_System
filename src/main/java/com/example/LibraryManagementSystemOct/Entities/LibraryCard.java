@@ -27,6 +27,8 @@ public class LibraryCard {
 
     String nameOnCard;
 
+    Integer noOfBookIssued;
+
     // Library Card needs to connect with the student
 
     @OneToOne

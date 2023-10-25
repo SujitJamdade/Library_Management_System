@@ -36,9 +36,9 @@ public class AuthorService {
         return authorName;
     }
 
-    public Author getAuthorById(Integer id) throws Exception {
+    public Author getAuthorById(Integer authorId) throws Exception {
 
-        Optional<Author> optionalAuthor = authorRepository.findById(id);
+        Optional<Author> optionalAuthor = authorRepository.findById(authorId);
 
         if(!optionalAuthor.isPresent()){
             throw new Exception("Author Id is invalid");

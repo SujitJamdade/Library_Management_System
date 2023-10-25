@@ -30,11 +30,11 @@ public class AuthorController {
         return authorService.getallAuthorsName();
     }
 
-    @GetMapping("/getAuthor/{id}")
-    public ResponseEntity getAuthorById(@PathVariable("id") Integer id){
+    @GetMapping("/getAuthor/{authorId}")
+    public ResponseEntity getAuthorById(@PathVariable("authorId") Integer authorId){
 
         try {
-            Author author = authorService.getAuthorById(id);
+            Author author = authorService.getAuthorById(authorId);
             return new ResponseEntity(author, HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
