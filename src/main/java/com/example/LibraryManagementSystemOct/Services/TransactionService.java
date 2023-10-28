@@ -123,12 +123,12 @@ public class TransactionService {
 
         Transaction newTransaction = new Transaction();
 
-        newTransaction.setTransactionStatus(TransactionStatus.ISSUED);
+        newTransaction.setTransactionStatus(TransactionStatus.COMPLETED);
         newTransaction.setReturnDate(new Date());
         newTransaction.setFine(fineAmount);
 
-        transaction.setBook(book);
-        transaction.setCard(card);
+        newTransaction.setBook(book);
+        newTransaction.setCard(card);
 
         book.setIsBookAvailable(true);
         card.setNoOfBookIssued(card.getNoOfBookIssued()-1);

@@ -1,6 +1,7 @@
 package com.example.LibraryManagementSystemOct.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -29,6 +30,7 @@ public class Author {
     double rating;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
+            @JsonIgnore
     List<Book> bookList = new ArrayList<>();
 
 

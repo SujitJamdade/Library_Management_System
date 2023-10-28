@@ -2,6 +2,7 @@ package com.example.LibraryManagementSystemOct.Entities;
 
 
 import com.example.LibraryManagementSystemOct.Enums.CardStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -37,6 +38,7 @@ public class LibraryCard {
     // student variable we need to put in mappedBy attribute in the parent class
 
     @OneToMany(mappedBy = "card", cascade = CascadeType.ALL)
+            @JsonIgnore
     List<Transaction> transactionList = new ArrayList<>();
 
 

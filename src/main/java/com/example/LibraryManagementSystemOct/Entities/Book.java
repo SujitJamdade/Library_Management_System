@@ -2,6 +2,7 @@ package com.example.LibraryManagementSystemOct.Entities;
 
 
 import com.example.LibraryManagementSystemOct.Enums.Genre;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -41,7 +42,10 @@ public class Book {
 
     @ManyToOne
     @JoinColumn
+            @JsonIgnore
     Author author;
+
+
 
     // Connecting to transaction
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)

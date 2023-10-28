@@ -1,6 +1,7 @@
 package com.example.LibraryManagementSystemOct.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -29,6 +30,7 @@ public class Student {
     String bloodGroup;
 
     @OneToOne(mappedBy = "student",cascade = CascadeType.ALL)
+            @JsonIgnore
     LibraryCard libraryCard;
 
     // this should also have libraryCard info
