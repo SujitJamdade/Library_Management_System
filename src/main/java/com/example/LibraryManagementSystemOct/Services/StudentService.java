@@ -1,6 +1,7 @@
 package com.example.LibraryManagementSystemOct.Services;
 
 
+import com.example.LibraryManagementSystemOct.DTO.BasicDetailsStudentResponse;
 import com.example.LibraryManagementSystemOct.Entities.Student;
 import com.example.LibraryManagementSystemOct.Exceptions.StudentNotFoundException;
 import com.example.LibraryManagementSystemOct.Repository.StudentRepository;
@@ -59,4 +60,16 @@ public class StudentService {
         return student;
     }
 
+    public BasicDetailsStudentResponse getBasicDetails(Integer id) {
+
+        Student student = studentRepository.findById(id).get();
+
+        BasicDetailsStudentResponse result = new BasicDetailsStudentResponse();
+        result.setAge(student.getAge());
+        result.setName(student.getName());
+        result.setMobNo(student.getMobNo());
+
+        return result;
+
+    }
 }

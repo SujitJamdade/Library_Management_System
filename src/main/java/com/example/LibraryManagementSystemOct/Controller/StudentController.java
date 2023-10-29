@@ -1,6 +1,7 @@
 package com.example.LibraryManagementSystemOct.Controller;
 
 
+import com.example.LibraryManagementSystemOct.DTO.BasicDetailsStudentResponse;
 import com.example.LibraryManagementSystemOct.Entities.Student;
 import com.example.LibraryManagementSystemOct.Services.StudentService;
 import lombok.AccessLevel;
@@ -35,6 +36,16 @@ public class StudentController {
         }catch(Exception e){
             return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    // using DTO Response
+
+    @GetMapping("/getBasicDetails")
+    public BasicDetailsStudentResponse getBasicDetails(@RequestParam("id") Integer id){
+
+        BasicDetailsStudentResponse resultObj = studentService.getBasicDetails(id);
+
+        return resultObj;
     }
 
 }
